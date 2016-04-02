@@ -70,7 +70,7 @@ public class Deck : MonoBehaviour {
 		s += " x=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("x");
 		s += " y=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("y");
 		s += " scale=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("scale");
-		print (s);
+		// print (s);
 		
 		//Read decorators for all cards
 		// these are the small numbers/suits in the corners
@@ -159,13 +159,13 @@ public class Deck : MonoBehaviour {
 			cgo.transform.parent = deckAnchor;
 			Card card = cgo.GetComponent<Card>();
 			
-			cgo.transform.localPosition = new Vector3(i%13*3, i/13*4, 0);
+			cgo.transform.localPosition = new Vector3((i%13)*3, i/13*4, 0);
 			
 			card.name = cardNames[i];
 			card.suit = card.name[0].ToString();
 			card.rank = int.Parse (card.name.Substring (1));
 			
-			if (card.suit =="D" || card.suit == "H") {
+			if (card.suit == "D" || card.suit == "H") {
 				card.colS = "Red";
 				card.color = Color.red;
 			}
